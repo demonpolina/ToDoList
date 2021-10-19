@@ -7,6 +7,7 @@ import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
+import { TodoCardComponent } from './profile/todo-card/todo-card.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { MainpageComponent } from './mainpage/mainpage.component';
     MainpageComponent,
     SigninComponent,
     SignupComponent,
-    ProfileComponent
+    ProfileComponent,
+    TodoCardComponent
 
   ],
   imports: [
