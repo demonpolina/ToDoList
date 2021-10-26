@@ -1,21 +1,49 @@
 <div class="sign-up__card">
     <h1>Registration</h1>
-    <form action="" method="POST">
-        
-        <label for="name" class="labels">Enter your name</label>
-        <input type="text" placeholder="Name" id="name" reguired>
-        <label for="surname" class="labels">Enter your surname</label>
-        <input type="text" placeholder="Surname" id="surname" reguired>
-        <label for="email" class="labels">Enter your email</label>
-        <input type="email" placeholder="Email" id="email" reguired>
+    <form [formGroup]="form" >
+       
+        <div>
+            <label for="name" class="labels">Enter your name</label>
+            <input type="text" placeholder="Name" id="name" reguired>
+        </div>
 
+        <div>
+            <label for="surname" class="labels">Enter your surname</label>
+            <input type="text" placeholder="Surname" id="surname" >
+        </div>
 
-        <label for="username" class="labels">Create username</label>
-        <input type="text" placeholder="Username" id="username" reguired>
-        <label for="password" class="labels">Create password</label>
-        <input type="password"  placeholder="Password" id="password" reguired>
+        <div>
+            <label for="email" class="labels">Enter your email</label>
+            <input type="email" placeholder="Email" id="email" reguired pattern="^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$">
+        </div>
+
+        <div>
+            <label for="username" class="labels">Create username</label>
+            <input type="text" placeholder="Username" id="username" reguired>
+            <span class="error-text"
+                *ngIf="form.get('username').invalid && && form.get('username').touched">
+                This field should not be empty
+            </span>
+        </div>
+
+        <div>
+            <label for="password" class="labels">Create password</label>
+            <input type="password"  placeholder="Password" id="password" class="password" reguired minlength="9">
+            <span class="error-text"
+                *ngIf="form.get('password').invalid && form.get('password').touched">
+                    <span
+                        *ngIf="form.get('password').errors['minlength'] && form.get('password').errors['minlength'][requiredLength]">
+                        Enter at least 9 symbols
+                </span>
+                <span
+                        *ngIf="form.get('password').errors['required']">
+                        This field should not be empty
+                </span>
+            </span>
+        </div>    
         <button type="submit">Sign up</button>
     </form>
 
-    <p>Already have an account? <span><a href="/signin">Sign in!</a></span></p>
+    <p>Already have an account? <span><a routerLink="/signin">Sign in!</a></span></p>
 </div>
+
