@@ -1,37 +1,44 @@
-<!-- 
 
-<div class="sign-in__card">
+<div class="card__sign-in">
 
-    <form FormGroup="form"  >
+    <h1>Login into account</h1>
+
+    <form [formGroup]="form">
+
         <div>
             <label for="username" class="labels">Enter username</label>
             <input type="text" placeholder="Username" id="username" formControlName="username">
-            <span class="error-text"
-                *ngIf="form.get('username').invalid && && form.get('username').touched">
-                This field should not be empty
-            </span>
+
+            <div class="error-text"  *ngIf="form.get('username').invalid && form.get('username').touched">
+                <small *ngIf="form.get('username').hasError('required')">
+                    This field should not be empty
+                </small>
+
+                <small *ngIf="form.get('username').hasError('pattern')">
+                    Enter correct username
+                </small> 
+            </div>
         </div>
+
 
         <div>
             <label for="password" class="labels">Enter password</label>
             <input type="password"  placeholder="Password" id="password" formControlName="password">
-            <div class="error-text"
-                *ngIf="form.get('password').invalid && form.get('password').touched">
-                    <span
-                        *ngIf="form.get('password').hasError['minlength'] && form.get('password').hasError['minlength'][requiredLength]">
-                        Enter at least 9 symbols
-                     </span>
-                    <span
-                        *ngIf="form.get('password').hasError['required']">
+
+            <div class="error-text" *ngIf="form.get('password').invalid && form.get('password').touched">
+                    <small
+                        *ngIf="form.get('password').hasError('minlength')">
+                        Enter at least 6 symbols
+                </small>
+
+                <small *ngIf="form.get('password').hasError('required')">
                         This field should not be empty
-                    </span>
-                </div>
+                </small>
+            </div>
         </div> 
             
-        <button type="submit" disabled="form.invalid">Sign in</button>
+        <button type="submit" [disabled]="form.invalid">Sign in</button>
     </form>
 
     <p>Don't have an account? <span><a routerLink="/signup">Sign up!</a></span></p>
 </div>
- -->
- <h1>Sign in works</h1>
