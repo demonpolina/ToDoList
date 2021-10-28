@@ -15,17 +15,17 @@
         <div>
             <label for="password" class="labels">Enter password</label>
             <input type="password"  placeholder="Password" id="password" formControlName="password">
-            <span class="error-text"
+            <div class="error-text"
                 *ngIf="form.get('password').invalid && form.get('password').touched">
                     <span
-                        *ngIf="form.get('password').errors['minlength'] && form.get('password').errors['minlength'][requiredLength]">
+                        *ngIf="form.get('password').hasError['minlength'] && form.get('password').hasError['minlength'][requiredLength]">
                         Enter at least 9 symbols
                      </span>
                     <span
-                        *ngIf="form.get('password').errors['required']">
+                        *ngIf="form.get('password').hasError['required']">
                         This field should not be empty
                     </span>
-            </span>
+                </div>
         </div> 
             
         <button type="submit" disabled="form.invalid">Sign in</button>
