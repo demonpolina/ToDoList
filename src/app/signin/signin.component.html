@@ -1,44 +1,49 @@
 
 <div class="card__sign-in">
 
-    <h1>Login into account</h1>
+    <mat-card-title class="title">Login into account</mat-card-title>
 
-    <form [formGroup]="form">
+    <form [formGroup]="form" class="form">
 
-        <div>
-            <label for="username" class="labels">Enter username</label>
-            <input type="text" placeholder="Username" id="username" formControlName="username">
+        <mat-form-field class="form__field">
+        
+            <mat-label>Enter username</mat-label>
+            <input matInput placeholder="Username" id="username" formControlName="username">
 
-            <div class="error-text"  *ngIf="form.get('username').invalid && form.get('username').touched">
+            
+            <mat-error> 
                 <small *ngIf="form.get('username').hasError('required')">
                     This field should not be empty
                 </small>
 
-                <small *ngIf="form.get('username').hasError('pattern')">
+                <small *ngIf="form.get('username').hasError('pattern')"> 
                     Enter correct username
-                </small> 
-            </div>
-        </div>
+                </small>
+            </mat-error>
+           
+        </mat-form-field>
 
 
-        <div>
-            <label for="password" class="labels">Enter password</label>
-            <input type="password"  placeholder="Password" id="password" formControlName="password">
+        <mat-form-field class="form__field">
+            <mat-label>Enter password</mat-label>
+            <input matInput type="password"  placeholder="Password" id="password" formControlName="password">
 
-            <div class="error-text" *ngIf="form.get('password').invalid && form.get('password').touched">
-                    <small
-                        *ngIf="form.get('password').hasError('minlength')">
-                        Enter at least 6 symbols
+            <mat-error>
+                <small
+                    *ngIf="form.get('password').hasError('minlength')">
+                    Enter at least 6 symbols
                 </small>
 
-                <small *ngIf="form.get('password').hasError('required')">
-                        This field should not be empty
-                </small>
-            </div>
-        </div> 
-            
-        <button type="submit" [disabled]="form.invalid">Sign in</button>
+                 <small *ngIf="form.get('password').hasError('required')">
+                    This field should not be empty
+                 </small>
+            </mat-error>
+        </mat-form-field>
+        
+        <button  mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Sign in</button>
     </form>
 
-    <p>Don't have an account? <span><a routerLink="/signup">Sign up!</a></span></p>
+    <mat-divider class="divider"></mat-divider>
+
+    <p class="anpage__text">Don't have an account? <span><a routerLink="/signup" class="anpage__link">Sign up!</a></span></p>
 </div>

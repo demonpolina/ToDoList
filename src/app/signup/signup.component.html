@@ -1,14 +1,15 @@
 <div class="card__sign-up">
 
-    <h1>Registration</h1>
+    <mat-card-title class="title">Registration</mat-card-title>
 
-    <form [formGroup]="form" >
+    <form [formGroup]="form" class="form">
        
-        <div>
-            <label for="name" class="labels">Enter your name</label>
-            <input type="text" placeholder="Name" id="name" formControlName="name">
+        <mat-form-field class="form__field">
+            
+            <mat-label class="labels">Enter your name</mat-label>
+            <input matInput type="text" placeholder="Name" id="name" formControlName="name">
 
-            <div class="error-text" *ngIf="form.get('name').invalid && form.get('name').touched">
+            <mat-error>
                 
                 <small *ngIf="form.get('name').hasError('required')">
                     This field should not be empty
@@ -18,14 +19,14 @@
                     Enter correct name
                 </small> 
 
-            </div>
-        </div>
+            </mat-error>
+        </mat-form-field>
 
-        <div>
-            <label for="surname" class="labels">Enter your surname</label>
-            <input type="text" placeholder="Surname" id="surname" formControlName="surname" >
+        <mat-form-field class="form__field">
+            <mat-label class="labels">Enter your surname</mat-label>
+            <input matInput type="text" placeholder="Surname" id="surname" formControlName="surname" >
 
-            <div class="error-text" *ngIf="form.get('surname').invalid && form.get('surname').touched">
+            <mat-error *ngIf="form.get('surname').invalid && form.get('surname').touched">
                 
                 <small *ngIf="form.get('surname').hasError('required')">
                     This field should not be empty
@@ -35,14 +36,14 @@
                     Enter correct surname
                 </small> 
 
-            </div>
-        </div>
+            </mat-error>
+        </mat-form-field>
 
-        <div>
-            <label for="email" class="labels">Enter your email</label>
-            <input type="email" placeholder="Email" id="email" formControlName="email">
+        <mat-form-field class="form__field">
+            <mat-label class="labels">Enter your email</mat-label>
+            <input matInput type="email" placeholder="Email" id="email" formControlName="email">
 
-            <div class="error-text" *ngIf="form.get('email').invalid && form.get('email').touched">
+            <mat-error *ngIf="form.get('email').invalid && form.get('email').touched">
                 
                 <small *ngIf="form.get('email').hasError('required')">
                     This field should not be empty
@@ -52,30 +53,32 @@
                     Enter correct email
                 </small> 
 
-            </div>
-        </div>
+            </mat-error>
+        </mat-form-field>
 
-        <div>
-            <label for="username" class="labels">Create username</label>
-            <input type="text" placeholder="Username" id="username" formControlName="username">
+        <mat-form-field class="form__field">
+        
+            <mat-label>Enter username</mat-label>
+            <input matInput placeholder="Username" id="username" formControlName="username">
 
-            <div class="error-text"  *ngIf="form.get('username').invalid && form.get('username').touched">
-                <small 
-                    *ngIf="form.get('username').hasError('required')">
+            
+            <mat-error> 
+                <small *ngIf="form.get('username').hasError('required')">
                     This field should not be empty
                 </small>
 
-                <small *ngIf="form.get('username').hasError('pattern')">
+                <small *ngIf="form.get('username').hasError('pattern')"> 
                     Enter correct username
-                </small> 
-            </div>
-        </div>
+                </small>
+            </mat-error>
+           
+        </mat-form-field>
 
-        <div>
-            <label for="password" class="labels">Create password</label>
-            <input type="password"  placeholder="Password" id="password" class="password" formControlName="password">
+        <mat-form-field class="form__field">
+            <mat-label class="labels">Create password</mat-label>
+            <input matInput type="password"  placeholder="Password" id="password" class="password" formControlName="password">
             
-            <div class="error-text" *ngIf="form.get('password').invalid && form.get('password').touched">
+            <mat-error *ngIf="form.get('password').invalid && form.get('password').touched">
                 <small *ngIf="form.get('password').hasError('minlength')">
                     Enter at least 6 symbols
                 </small>
@@ -83,11 +86,13 @@
                 <small *ngIf="form.get('password').hasError('required')">
                   This field should not be empty
                 </small>
-            </div>
-        </div>    
+            </mat-error>
+        </mat-form-field>    
 
-        <button type="submit" [disabled]="form.invalid">Sign up</button>
+        <button type="submit" mat-raised-button color="primary" [disabled]="form.invalid">Sign up</button>
     </form>
 
-    <p>Already have an account? <span><a routerLink="/signin">Sign in!</a></span></p>
+    <mat-divider class="divider"></mat-divider>
+
+    <p class="anpage__text">Already have an account? <span><a routerLink="/signin" class="anpage__link">Sign in!</a></span></p>
 </div>
