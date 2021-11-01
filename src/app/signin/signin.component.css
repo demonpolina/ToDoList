@@ -8,13 +8,12 @@
 }
 
 .form__field {
-  padding: 5px auto;
-  margin-bottom: 10px;
+  padding: 4px auto;
+  margin-bottom: 3px;
 }
 
 .divider {
   margin: 10px auto;
-  width: 80%;
 }
 
 .anpage__text {
@@ -25,8 +24,10 @@
 .anpage__link {
   text-decoration: none;
   font-size: 16px;
+  color: black;
+  font-style: oblique;
 }
 
-.anpage__link :hover {
+.anpage__link:hover {
   border-bottom: 3px solid #707070;
 }

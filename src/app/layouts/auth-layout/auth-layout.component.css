@@ -1,12 +1,11 @@
 .nav {
   padding: 20px 30px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   background-color: lightgrey;
   margin-bottom: 20px;
 }
 .nav__link {
-  border-bottom: 1px solid #858080;
   margin-left: 30px;
   padding-bottom: 7px;
   font-size: 25px;
@@ -14,12 +13,12 @@
   text-decoration: none;
 }
 
-.nav__link :first-of-type {
-  justify-self: flex-start;
+#logo {
   font-size: 30px;
+  cursor: default;
 }
 
-.nav__link :hover :not(:first-of-type) {
+.nav__link:hover:not(#logo) {
   border-bottom: 4px solid #000;
 }
 
