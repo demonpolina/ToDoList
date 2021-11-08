@@ -5,16 +5,8 @@ import { TodoCardComponent } from './todo-card/todo-card.component';
   selector: 'app-profile',
   templateUrl: './profile.component.html'
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent {
 
-  title = 'ProfileComponent'
-
-  constructor() { }
-
-  
-
-  ngOnInit(): void {
-  }
- 
+  title = 'ProfileComponent';
 }
 

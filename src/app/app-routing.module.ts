@@ -9,10 +9,6 @@ import { AuthLayoutComponent } from 'src/app/layouts/auth-layout/auth-layout.com
 import { SystemLayoutComponent } from 'src/app/layouts/system-layout/system-layout.component';
 
 const routes: Routes = [
-  
-  // {path:'profile', component: ProfileComponent},
-  // {path:'', component: MainpageComponent},
-  // {path: 'profile/settings', component: SettingsComponent}
   {
     path: '', component: AuthLayoutComponent, children: [
       {path:'', redirectTo:'/signin', pathMatch:'full'},
@@ -21,14 +17,14 @@ const routes: Routes = [
       
     ]
   },
-
   {
-    path: '', component: SystemLayoutComponent, children: [
-
+    path: 'mainpage', component: SystemLayoutComponent, children: [
+      {path:'mainpage', component: MainpageComponent},
+      {path:'profile', component: ProfileComponent, children: [
+       {path:'settings', component: SettingsComponent}
+      ]}
     ]
   },
-  
-  
 ];
 
 @NgModule({
@@ -36,6 +32,5 @@ const routes: Routes = [
   exports: [RouterModule],
   
 })
-
 
 export class AppRoutingModule { }

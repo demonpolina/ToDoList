@@ -7,18 +7,18 @@
 
         <mat-form-field appearance="outline" class="form__field">
         
-            <mat-label>Enter username</mat-label>
-            <input matInput placeholder="Username" id="username" formControlName="username">
+            <input matInput type="email" placeholder="Email" id="email" formControlName="email">
 
-            
-            <mat-error> 
-                <small *ngIf="form.get('username').hasError('required')">
+            <mat-error *ngIf="form.get('email').invalid && form.get('email').touched">
+                
+                <small *ngIf="form.get('email').hasError('required')">
                     This field should not be empty
                 </small>
 
-                <small *ngIf="form.get('username').hasError('pattern')"> 
-                    Enter correct username
-                </small>
+                <small *ngIf="form.get('email').hasError('email')">
+                    Enter correct email
+                </small> 
+
             </mat-error>
            
         </mat-form-field>
