@@ -1,1 +1,49 @@
-<p>signin works!</p>
+
+<div class="card__sign-in">
+
+    <mat-card-title class="title">Login into account</mat-card-title>
+
+    <form [formGroup]="form" class="form">
+
+        <mat-form-field appearance="outline" class="form__field">
+        
+            <input matInput type="email" placeholder="Email" id="email" formControlName="email">
+
+            <mat-error *ngIf="form.get('email').invalid && form.get('email').touched">
+                
+                <small *ngIf="form.get('email').hasError('required')">
+                    This field should not be empty
+                </small>
+
+                <small *ngIf="form.get('email').hasError('email')">
+                    Enter correct email
+                </small> 
+
+            </mat-error>
+           
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline" class="form__field">
+            <mat-label>Enter password</mat-label>
+            <input matInput type="password"  placeholder="Password" id="password" formControlName="password">
+
+            <mat-error>
+                <small
+                    *ngIf="form.get('password').hasError('minlength')">
+                    Enter at least 6 symbols
+                </small>
+
+                 <small *ngIf="form.get('password').hasError('required')">
+                    This field should not be empty
+                 </small>
+            </mat-error>
+        </mat-form-field>
+        
+        <button  mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Sign in</button>
+    </form>
+
+    <mat-divider class="divider"></mat-divider>
+
+    <p class="anpage__text">Don't have an account? <span><a routerLink="/signup" class="anpage__link">Sign up!</a></span></p>
+</div>

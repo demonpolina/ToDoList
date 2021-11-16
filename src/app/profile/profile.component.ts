@@ -1,14 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { TodoCardComponent } from './todo-card/todo-card.component';
 
 @Component({
   selector: 'app-profile',
-  template: `<p> Profile </p>`
+  templateUrl: './profile.component.html'
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  title = 'ProfileComponent';
 }
+

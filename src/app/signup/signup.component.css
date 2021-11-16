@@ -1,0 +1,33 @@
+.title {
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__field {
+  padding: 4px auto;
+  margin-bottom: 3px;
+}
+
+.divider {
+  margin: 10px auto;
+}
+
+.anpage__text {
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.anpage__link {
+  text-decoration: none;
+  font-size: 16px;
+  color: black;
+  font-style: oblique;
+}
+
+.anpage__link:hover {
+  border-bottom: 3px solid #707070;
+}

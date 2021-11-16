@@ -1,0 +1,31 @@
+.nav {
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  background-color: lightgrey;
+  margin-bottom: 20px;
+}
+
+.nav__link {
+  margin-left: 30px;
+  padding-bottom: 7px;
+  font-size: 25px;
+  color: rgb(19, 18, 18);
+  text-decoration: none;
+}
+
+#logo {
+  font-size: 30px;
+  cursor: default;
+}
+
+.nav__link:hover:not(#logo) {
+  border-bottom: 4px solid #000;
+}
+
+.card {
+  width: fit-content;
+  height: fit-content;
+  margin: auto;
+  padding: 10px 40px;
+}

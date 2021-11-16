@@ -1,1 +1,99 @@
-<p>signup works!</p>
+
+<div class="card__sign-up">
+
+    <mat-card-title class="title">Registration</mat-card-title>
+
+    <form [formGroup]="form" class="form">
+       
+        <mat-form-field appearance="outline" class="form__field">
+            
+            <mat-label class="labels">Enter your name</mat-label>
+            <input matInput placeholder="Name" id="name" formControlName="name">
+
+            <mat-error>
+                
+                <small *ngIf="form.get('name').hasError('required')">
+                    This field should not be empty
+                </small>
+
+                <small *ngIf="form.get('name').hasError('pattern')">
+                    Enter correct name
+                </small> 
+
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form__field">
+            <mat-label class="labels">Enter your surname</mat-label>
+            <input matInput placeholder="Surname" id="surname" formControlName="surname" >
+
+            <mat-error *ngIf="form.get('surname').invalid && form.get('surname').touched">
+                
+                <small *ngIf="form.get('surname').hasError('required')">
+                    This field should not be empty
+                </small>
+
+                <small *ngIf="form.get('surname').hasError('pattern')">
+                    Enter correct surname
+                </small> 
+
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form__field">
+            <mat-label class="labels">Enter your email</mat-label>
+            <input matInput type="email" placeholder="Email" id="email" formControlName="email">
+
+            <mat-error *ngIf="form.get('email').invalid && form.get('email').touched">
+                
+                <small *ngIf="form.get('email').hasError('required')">
+                    This field should not be empty
+                </small>
+
+                <small *ngIf="form.get('email').hasError('email')">
+                    Enter correct email
+                </small> 
+
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form__field">
+        
+            <mat-label>Enter username</mat-label>
+            <input matInput placeholder="Username" id="username" formControlName="username">
+
+            
+            <mat-error> 
+                <small *ngIf="form.get('username').hasError('required')">
+                    This field should not be empty
+                </small>
+
+                <small *ngIf="form.get('username').hasError('pattern')"> 
+                    Enter correct username
+                </small>
+            </mat-error>
+           
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form__field">
+            <mat-label class="labels">Create password</mat-label>
+            <input matInput type="password"  placeholder="Password" id="password" class="password" formControlName="password">
+            
+            <mat-error *ngIf="form.get('password').invalid && form.get('password').touched">
+                <small *ngIf="form.get('password').hasError('minlength')">
+                    Enter at least 6 symbols
+                </small>
+
+                <small *ngIf="form.get('password').hasError('required')">
+                  This field should not be empty
+                </small>
+            </mat-error>
+        </mat-form-field>    
+
+        <button type="submit" mat-raised-button color="primary" [disabled]="form.invalid">Sign up</button>
+    </form>
+
+    <mat-divider class="divider"></mat-divider>
+
+    <p class="anpage__text">Already have an account? <span><a routerLink="/signin" class="anpage__link">Sign in!</a></span></p>
+</div>

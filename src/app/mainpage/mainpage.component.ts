@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-mainpage',
-  template: `<h1>TO DO</h1>`
+  templateUrl: './mainpage.component.html'
 })
 export class MainpageComponent implements OnInit {
 
